@@ -1,3 +1,4 @@
+<#import "/spring.ftl" as spring/>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +10,10 @@
 </head>
 <body>
     <h2>Type your user here:</h2>
-    <form method="post" action="/register">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" value=""><br>
-        <label for="email">Email:</label><br>
-        <input type="text" id="email" value=""><br><br>
-        <input type="submit" value="Register">
+    <form name="user" action="" method="POST">
+        Name: <@spring.formInput "userForm.name" "" "text"/>    <br/>
+        Email: <@spring.formInput "userForm.email" "" "text"/>    <br/>
+        <input type="submit" value="Create" />
     </form>
 
 </body>
