@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 
 @Controller
-public class SimpleController {
+public class UserController {
 
     @Autowired
     private UserService userService;
@@ -30,14 +30,14 @@ public class SimpleController {
     public String getRegisterPage() {
         return "register";
     }
-    @PostMapping(value = "/register")
+    /*@PostMapping(value = "/register")
     public String addPersonSave(@ModelAttribute("userForm") Users userForm) {
         String name = userForm.getName();
         String email = userForm.getEmail();
         Users user = new Users(name, email);
         userService.createUsers(user);
         return "redirect:/index";
-    }
+    }*/
 
 
 }
