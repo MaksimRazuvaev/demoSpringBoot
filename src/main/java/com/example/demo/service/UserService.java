@@ -5,13 +5,23 @@ import com.example.demo.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
     private UsersRepository usersRepository;
+
+    @PersistenceContext
+    private EntityManager em;
+
+
+
 
 //    public UserService(UsersRepository usersRepository){
 //        this.usersRepository = usersRepository;
@@ -36,4 +46,9 @@ public class UserService {
     public Users getUserByEmail(String email) {
         return usersRepository.findUsersByEmail(email);
     }
+
+    public void postUser(Users user) {
+        em.persist(user);
+    }
+
 }

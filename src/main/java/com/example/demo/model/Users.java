@@ -5,6 +5,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.List;
 
 @ToString
 @Entity
@@ -26,6 +27,9 @@ public class Users {
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
+
+    @OneToMany(mappedBy = "user")
+    private List<Orders> orders;
 
 
     public Users() {
