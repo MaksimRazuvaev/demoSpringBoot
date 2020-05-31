@@ -4,15 +4,14 @@ import com.example.demo.model.Address;
 import com.example.demo.model.Product;
 import com.example.demo.model.Supplier;
 import com.example.demo.model.Users;
-import com.example.demo.service.AddressService;
-import com.example.demo.service.ProductService;
-import com.example.demo.service.SupplierService;
-import com.example.demo.service.UserService;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+
+import javax.persistence.EntityManager;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -75,19 +74,18 @@ public class DemoApplication {
         //addressService.postAddress(address2);
 
         Supplier supplier3 = new Supplier();
-        supplier3.setSupplierName("My Soda");
-        supplier3.setSupplierPhone("555 897-5469");
-        supplier3.setSupplierCountry("Peru");
+        supplier3.setSupplierName("Drink Cola");
+        supplier3.setSupplierPhone("(687) 897-6654");
+        supplier3.setSupplierCountry("Chilly");
 
         //supplierService.toPostSupplier(supplier3);
 
         Product product = new Product();
-        product.setId((long) 1);
-        product.setProductName("Sweet Cookies");
+        product.setProductName("Morning Snack");
         product.setIsLiquid(false);
         product.setSupplier(supplier3);
 
-        productService.postProduct(product);
+        //productService.postProduct(product);
     }
 
 }
