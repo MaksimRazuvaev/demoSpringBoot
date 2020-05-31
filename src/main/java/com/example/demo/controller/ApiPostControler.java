@@ -6,10 +6,7 @@ import com.example.demo.model.Product;
 import com.example.demo.model.Supplier;
 import com.example.demo.model.Users;
 import com.example.demo.repository.UsersRepository;
-import com.example.demo.service.AddressService;
-import com.example.demo.service.ProductService;
-import com.example.demo.service.SupplierService;
-import com.example.demo.service.UserService;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +25,7 @@ public class ApiPostControler {
     private ProductService productService;
     @Autowired
     private SupplierService supplierService;
+
 
     @PostMapping (value = "/postUser")
     public void toPostUser(@RequestBody Users user) {
@@ -48,4 +46,5 @@ public class ApiPostControler {
     public void toPostSupplier(@RequestBody Supplier supplier) {
         supplierService.toPostSupplier(supplier);
     }
+
 }

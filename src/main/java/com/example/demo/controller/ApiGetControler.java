@@ -71,4 +71,19 @@ public class ApiGetControler {
         Users user = userService.findById(id);
         return ResponseEntity.ok().body(user);
     }
+
+    @GetMapping(value = "/getUserFromWebPage/email")
+    @ResponseBody
+    public String getUserByEmailTest(@RequestParam (value = "email") String email) {
+        Users user = userService.getUserByEmail(email);
+        return user.getName();
+    }
+
+    @GetMapping(value = "/getUserFromWebPage/phone")
+    @ResponseBody
+    public String getUserByPhoneTest(@RequestParam (value = "phone") String phone) {
+        Users user = userService.getUserByPhone(phone);
+        return user.getName();
+    }
+
 }

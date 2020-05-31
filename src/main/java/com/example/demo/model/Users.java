@@ -20,15 +20,16 @@ public class Users {
 
     @Column
     private String name;
-
     @Column
     private String email;
+    @Column
+    private String phone;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Orders> orders;
 
 

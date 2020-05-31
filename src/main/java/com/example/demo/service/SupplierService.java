@@ -17,12 +17,14 @@ public class SupplierService {
 
     @Autowired
     private SupplierRepository supplierRepository;
+
     @PersistenceContext
     private EntityManager em;
 
     public List<Supplier> findAllBySupplierName(String supplierName) {
         return supplierRepository.findAllBySupplierName(supplierName);
     }
+
     public List<Supplier> findAllBySupplierCountry(String supplierCountry) {
         return supplierRepository.findAllBySupplierCountry(supplierCountry);
     }

@@ -47,8 +47,12 @@ public class UserService {
         return usersRepository.findUsersByEmail(email);
     }
 
+    public Users getUserByPhone(String phone) {return usersRepository.findUsersByPhone(phone); }
+
     public void postUser(Users user) {
         em.persist(user);
     }
+
+
 
 }

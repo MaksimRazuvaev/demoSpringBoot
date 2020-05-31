@@ -17,19 +17,20 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
-//    @PersistenceContext
-//    private EntityManager em;
 
+    @PersistenceContext
+    private EntityManager em;
 
     public List<Product> findAllByProductNameToController(String productName) {
         return productRepository.findAllByProductName(productName);
     }
+
     public List<Product> findAllBySupplierId(String supplierId) {
         return productRepository.findAllByProductName(supplierId);
     }
 
     public void postProduct(Product product) {
-//        em.persist(product);
-        productRepository.save(product);
+        em.persist(product);
     }
+
 }
