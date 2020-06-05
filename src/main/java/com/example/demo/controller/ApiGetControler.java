@@ -79,6 +79,25 @@ public class ApiGetControler {
         return user.getName();
     }
 
+    @GetMapping(value = "/postUserWithEmailSearch")
+    @ResponseBody
+    public String postUserByEmail(@RequestParam (value = "email") String email) {
+        Users user = new Users();
+        user.setEmail(email);
+        userService.postUser(user);
+        return "Successful";
+    }
+
+    @GetMapping(value = "/postUserWithEmailAndName")
+    @ResponseBody
+    public String postUserByEmail(@RequestParam (value = "email") String email, @RequestParam (value = "name") String name) {
+        Users user = new Users();
+        user.setEmail(email);
+        user.setName(name);
+        userService.postUser(user);
+        return "Successful";
+    }
+
     @GetMapping(value = "/getUserFromWebPage/phone")
     @ResponseBody
     public String getUserByPhoneTest(@RequestParam (value = "phone") String phone) {

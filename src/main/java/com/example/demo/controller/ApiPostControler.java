@@ -32,6 +32,7 @@ public class ApiPostControler {
         userService.postUser(user);
     }
 
+
     @PostMapping(value = "/postAddress")
     public void toPostAddress(@RequestBody Address address) {
         addressService.postAddress(address);

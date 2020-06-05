@@ -1,16 +1,12 @@
 package com.example.demo;
 
-import com.example.demo.model.Address;
-import com.example.demo.model.Product;
-import com.example.demo.model.Supplier;
-import com.example.demo.model.Users;
+import com.example.demo.model.*;
 import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-
 import javax.persistence.EntityManager;
 
 @SpringBootApplication
@@ -28,6 +24,7 @@ public class DemoApplication {
     private SupplierService supplierService;
     @Autowired
     private ProductService productService;
+    @Autowired DiscountService discountService;
 
     @EventListener(ApplicationReadyEvent.class)
     private void testJpaMethods() {
@@ -86,6 +83,13 @@ public class DemoApplication {
         product.setSupplier(supplier3);
 
         //productService.postProduct(product);
+
+        Discount discount = new Discount();
+        discount.setUserDiscount(10L);
+        discount.setUserId(userService.getUserByEmail("testEmail@gmail.com").getId());
+
+        //discountService.postDiscount(discount);
+
     }
 
 }
